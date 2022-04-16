@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ENV=$1
+
+echo "Deploying for environment $ENV..."
