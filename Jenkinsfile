@@ -20,16 +20,21 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Deploy') {
-            if (env.BRANCH_NAME == 'staging') {
-                steps {
-                    sh './deploy staging'
-                    sh './run-smoke-tests'
-                }
-            } else {
-                steps {
-                    sh './deploy production'
-                }
+        stage('Deploy - Staging') {
+            when {
+                branch 'staging'
+            }
+            steps {
+                sh './deploy staging'
+                sh './run-smoke-tests'
+            }
+        }
+        stage('Deploy - Production') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh './deploy production'
             }
         }
     }
