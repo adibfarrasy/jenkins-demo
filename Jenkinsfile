@@ -21,7 +21,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            if (env.BRANCH_NAME == 'main') {
+            if (env.BRANCH_NAME == 'staging') {
                 steps {
                     sh './deploy staging'
                     sh './run-smoke-tests'
