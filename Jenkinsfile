@@ -28,7 +28,7 @@ pipeline {
                 }
             } else {
                 steps {
-                    sh './deploy staging'
+                    sh './deploy production'
                 }
             }
         }
